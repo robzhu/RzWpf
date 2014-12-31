@@ -1,0 +1,30 @@
+﻿<RzWpf:DialogControl x:Class="RzWpfSample_Shell.MessageDialogView"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                     xmlns:src="clr-namespace:RzWpfSample_Shell"
+                     xmlns:RzWpf="clr-namespace:RzWpf;assembly=RzWpf"
+                     mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="1280">
+
+    <RzWpf:DialogControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Button" BasedOn="{StaticResource HyperlinkButtonStyle}"/>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource SubTitleTextStyle}">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="DialogTitleTextStyle" BasedOn="{StaticResource LargeTitleTextStyle}">
+                <Setter Property="Foreground" Value="Red"/>
+            </Style>
+        </ResourceDictionary>
+    </RzWpf:DialogControl.Resources>
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">        
+        <TextBlock Text="{Binding Message}"/>
+    </Grid>
+</RzWpf:DialogControl>

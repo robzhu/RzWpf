@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBFFE686-B722-4B64-A3EF-4D1BC3F4A383}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RzWpf</RootNamespace>
+    <AssemblyName>RzWpf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HaveBox, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HaveBox.2.0.0\lib\net45\HaveBox.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.0.13.1.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell">
+      <HintPath>..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RzAspects, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RzAspects.0.5.0.0\lib\net45\RzAspects.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.0.13.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animation\Animator.cs" />
+    <Compile Include="Animation\PennerIntAnimation.cs" />
+    <Compile Include="AttachedProperties\MouseBehavior.cs" />
+    <Compile Include="Converters\BoolToFlowDirectionConverter.cs" />
+    <Compile Include="Converters\FloatToPercentStringConverter.cs" />
+    <Compile Include="Glass\WindowExtensions.cs" />
+    <Compile Include="ApplicationExtensions.cs" />
+    <Compile Include="Shaders\LightenEffect.cs" />
+    <Compile Include="Shell\DialogControl.cs" />
+    <Compile Include="Shell\MessageDialogViewModel.cs" />
+    <Compile Include="Shell\ShellWindow.xaml.cs">
+      <DependentUpon>ShellWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\ShellWindowViewModel.cs" />
+    <Compile Include="SimpleViewModelBaseGeneric.cs" />
+    <Compile Include="Shaders\DarkenEffect.cs" />
+    <Compile Include="Shaders\MultiplyEffect.cs" />
+    <Compile Include="Sprites\ICanvasElement.cs" />
+    <Compile Include="Sprites\ISprite.cs" />
+    <Compile Include="Sprites\SpriteFactory.cs" />
+    <Compile Include="Sprites\SpriteSetView.xaml.cs">
+      <DependentUpon>SpriteSetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\SpriteContainer.cs" />
+    <Compile Include="Sprites\SpriteOrigins.cs" />
+    <Compile Include="Sprites\SpriteSheetReader.cs" />
+    <Compile Include="Sprites\Sprite.cs" />
+    <Compile Include="Sprites\SpriteSheetMetadata.cs" />
+    <Compile Include="Sprites\SpriteView.xaml.cs">
+      <DependentUpon>SpriteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\AnimatedImage.cs" />
+    <Compile Include="TestHelper\PackUriHelper.cs" />
+    <Compile Include="Updatables\ScaledFrameEventProvider.cs" />
+    <Compile Include="Updatables\WpfFrameEventProvider.cs" />
+    <Compile Include="Updatables\WpfUpdateService.cs" />
+    <Compile Include="Animation\StoryboardManager.cs" />
+    <Compile Include="Animation\PennerDoubleAnimation.cs" />
+    <Compile Include="Async\DispatcherObjectExtensions.cs" />
+    <Compile Include="Controls\RadialProgressIndicator.xaml.cs">
+      <DependentUpon>RadialProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\BoolToValueConverter.cs" />
+    <Compile Include="Converters\BoolToZIndexConverter.cs" />
+    <Compile Include="Controls\ScrollZoomControl.xaml.cs">
+      <DependentUpon>ScrollZoomControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomComboBox.cs" />
+    <Compile Include="Controls\ValueBar.xaml.cs">
+      <DependentUpon>ValueBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Converters\AddOffsetConverter.cs" />
+    <Compile Include="Converters\BoolToSolidBrushConverter.cs" />
+    <Compile Include="Converters\ObjectEqualityToVisibilityConverter.cs" />
+    <Compile Include="Converters\MillisecondsToSecondsConverter.cs" />
+    <Compile Include="Converters\ObjectTypeEqualityToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjectToTypeStringConverter.cs" />
+    <Compile Include="Converters\EnumEqualityToVisibilityConverter.cs" />
+    <Compile Include="Converters\LogarithmicScaleConverter.cs" />
+    <Compile Include="Navigation.cs" />
+    <Compile Include="Utilities\CommandManagerHelper.cs" />
+    <Compile Include="Utilities\DispatcherHelper.cs" />
+    <Compile Include="VectorMath\VectorUtility.cs" />
+    <Compile Include="VectorMath\VectorExtensions.cs" />
+    <Compile Include="WindowCustomizer.cs" />
+    <Compile Include="IInlineDialog.cs" />
+    <Compile Include="Rendering\WpfFrameTimeService.cs" />
+    <Compile Include="FontUtility.cs" />
+    <Compile Include="Performance\PersistTabSelectedItemHandler.cs" />
+    <Compile Include="Performance\PersistTabItemsSourceHandler.cs" />
+    <Compile Include="Performance\PersistTabBehavior.cs" />
+    <Compile Include="Converters\IntegerToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntegerToValueConverter.cs" />
+    <Compile Include="Converters\ReferenceNullToBoolConverter.cs" />
+    <Compile Include="Converters\ReferenceNullToVisibilityConverter.cs" />
+    <Compile Include="Converters\ReferenceNullToValueConverter.cs" />
+    <Compile Include="ImageSourceExtensions.cs" />
+    <Compile Include="ViewModelBaseGeneric.cs" />
+    <Compile Include="Converters\ObjectToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageSourceConverter.cs" />
+    <Compile Include="DelegatedCommand.cs" />
+    <Compile Include="Converters\EnumToBoolConverter.cs" />
+    <Compile Include="IViewModel.cs" />
+    <Compile Include="Localization\DisplayStringAttribute.cs" />
+    <Compile Include="Localization\IResourceString.cs" />
+    <Compile Include="Localization\ResourceStringAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\BooleanMustEqualAttribute.cs" />
+    <Compile Include="Validation\ChildValidationElementAttribute.cs" />
+    <Compile Include="Validation\ExcludeChildValidationElementAttribute.cs" />
+    <Compile Include="Validation\ExcludeEnumAttribute.cs" />
+    <Compile Include="Validation\ExcludeStringAttribute.cs" />
+    <Compile Include="Validation\IDataErrorInfoConstants.cs" />
+    <Compile Include="Validation\IPropertyValidationAttribute.cs" />
+    <Compile Include="Validation\IValidationElement.cs" />
+    <Compile Include="Validation\IValidationRule.cs" />
+    <Compile Include="Validation\MatchesRegexAttribute.cs" />
+    <Compile Include="Validation\MatchesStringPropertyAttribute.cs" />
+    <Compile Include="Validation\PropertyNullableAttribute.cs" />
+    <Compile Include="Validation\PropertyValidationAttribute.cs" />
+    <Compile Include="Validation\StringMustNotContainAttribute.cs" />
+    <Compile Include="Validation\StringMustNotEndWithAttribute.cs" />
+    <Compile Include="Validation\ValidationElement.cs" />
+    <Compile Include="Validation\ValidationException.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="XamlResourceLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shaders\MultiplyEffect.ps" />
+    <Resource Include="Shaders\LightenEffect.ps" />
+    <None Include="packages.config" />
+    <None Include="Snippets\PathResource.snippet" />
+    <Resource Include="Shaders\DarkenEffect.ps" />
+    <None Include="Snippets\DesignData.snippet" />
+    <None Include="Snippets\ObservableProperty.snippet" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\RadialProgressIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ScrollZoomControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ValueBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\ShellWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sprites\SpriteSetView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sprites\SpriteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Darken.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Multiply.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Lighten.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Focus\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

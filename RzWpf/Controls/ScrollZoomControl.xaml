@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="RzWpf.ScrollZoomControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:RzWpf="clr-namespace:RzWpf">
+    <UserControl.Resources>
+        <RzWpf:LogarithmicScaleConverter x:Key="LogScaleConverter" ScaleBase="2"/>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollZoomControlPreviewMouseWheel">
+        <ContentControl Content="{Binding Path=Content, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ScrollZoomControl}}}">
+            <ContentControl.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding Path=ZoomLevel, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ScrollZoomControl}},
+                                                 Converter={StaticResource LogScaleConverter}}"
+                                ScaleY="{Binding Path=ZoomLevel, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ScrollZoomControl}},
+                                                 Converter={StaticResource LogScaleConverter}}"/>
+            </ContentControl.LayoutTransform>
+        </ContentControl>
+    </ScrollViewer>
+</UserControl>

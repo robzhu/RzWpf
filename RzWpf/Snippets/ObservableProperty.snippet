@@ -1,0 +1,38 @@
+﻿<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Observable Property</Title>
+    <Author>Robert Zhu</Author>
+    <Shortcut>op</Shortcut>
+    <Description>Creates an observable property that raises property changed events for INotifyPropertyChanged</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <ToolTip>The name of the property</ToolTip>
+        <Default>Name</Default>
+      </Literal>
+
+      <Literal>
+        <ID>type</ID>
+        <ToolTip>The type of the property</ToolTip>
+        <Default>string</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      public string Property$name$ { get { return "$name$"; } }
+      private $type$ _$name$;
+      public $type$ $name$
+      {
+        get{ return _$name$; }
+        set{ SetProperty( Property$name$, ref _$name$, value ); }
+      }
+      $selected$ $end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

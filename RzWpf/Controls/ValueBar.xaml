@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="RzWpf.ValueBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:RzWpf="clr-namespace:RzWpf">
+    
+    <UserControl.Resources>
+        <Style TargetType="ProgressBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Grid x:Name="PART_Track">
+                            <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left" 
+                                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Border BorderBrush="{Binding Path=BarBorderBrush, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+            BorderThickness="{Binding Path=BarBorderThickness, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+            CornerRadius="{Binding Path=BarBorderCornerRadius, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}">
+        <Grid Background="{Binding Path=BarBackground, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Residual bar: used for animating value changes-->
+            <ProgressBar Grid.RowSpan="2" Name="PART_ResidualValueBar"
+                         Value="{Binding Path=ResidualValue, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Maximum="{Binding Path=Maximum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Minimum="{Binding Path=Minimum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Foreground="{Binding Path=DecrementResidualBarBrush, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"/>
+
+            <!--Actual Bar value-->
+            <ProgressBar Grid.RowSpan="2" Name="PART_ValueBar"
+                         Value="{Binding Path=Value, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Maximum="{Binding Path=Maximum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Minimum="{Binding Path=Minimum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"/>
+
+            <ProgressBar Grid.RowSpan="2" Name="PART_IncrementResidualValueBar"
+                         Visibility="Hidden"
+                         Value="{Binding Path=ResidualValue, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Maximum="{Binding Path=Maximum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Minimum="{Binding Path=Minimum, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"
+                         Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"/>
+
+            <!--Overlay brush that gives the bar a glass-like appearance-->
+            <Border Grid.Row="0"
+                    Background="{Binding Path=OverlayBrush, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:ValueBar}}}"/>
+        </Grid>
+    </Border>
+</UserControl>

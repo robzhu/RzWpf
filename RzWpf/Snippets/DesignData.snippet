@@ -1,0 +1,29 @@
+﻿<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Static Design Data</Title>
+    <Author>Robert Zhu</Author>
+    <Shortcut>dd</Shortcut>
+    <Description>Creates a static instance of an object to be used as design data.</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>type</ID>
+        <ToolTip>The type of the property</ToolTip>
+        <Default>string</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      private static $type$ _DD_$type$;
+      public static $type$ DD_$type$
+      {
+        get{ return _DD_$type$; }
+      }
+      $selected$ $end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

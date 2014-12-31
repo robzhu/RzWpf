@@ -1,0 +1,25 @@
+﻿<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Pack Image Shortcut</Title>
+    <Author>Robert Zhu</Author>
+    <Shortcut>pr</Shortcut>
+    <Description>Creates a path resource for Image pack indices.</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <ToolTip>The name of the pack resource</ToolTip>
+        <Default>Image</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      public static string $name$ = Path + "$name$.png";
+      ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

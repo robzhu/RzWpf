@@ -1,0 +1,50 @@
+﻿<controls:MetroWindow x:Class="RzWpf.ShellWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+                      xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
+                      xmlns:RzWpf="clr-namespace:RzWpf"
+                      
+                      MinHeight="720" MinWidth="1280"
+                      Height="720" Width="1280"
+                      WindowStyle="None"
+                      WindowState="{Binding WindowState}"
+                      ResizeMode="NoResize"
+                      
+                      Background="{Binding BgColor}"
+                      Title="{Binding Title}"
+                      Icon="{Binding Icon}">
+
+    <!--ResizeMode="CanMinimize"-->
+
+    <i:Interaction.Behaviors>
+        <Behaviours:BorderlessWindowBehavior ResizeWithGrip="True" EnableDWMDropShadow="True" AllowsTransparency="False"/>
+    </i:Interaction.Behaviors>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <RzWpf:ReferenceNullToVisibilityConverter x:Key="CollapsedIfNullConverter" NullValue="Collapsed" NonNullValue="Visible"/>
+            <RzWpf:ColorToBrushConverter x:Key="ColorToBrushConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Canvas ClipToBounds="True">
+        <Image Name="_background" Source="{Binding Background}" Stretch="None" Canvas.Left="0" IsHitTestVisible="False"/>
+        <Border Name="_backgroundOverlay" Background="{Binding OverlayColor, Converter={StaticResource ColorToBrushConverter}}" IsHitTestVisible="False"/>
+
+        <Canvas Name="_contentCanvas" ClipToBounds="True">
+            <ContentControl x:Name="_contentFrame"/>
+            <ContentControl x:Name="_nextContentFrame"/>
+
+            <Border Name="_dialogBorder" Background="#B0000000" Visibility="Hidden">
+                <Canvas>
+                    <ContentControl x:Name="_dialogFrame" Canvas.Top="0"/>
+                    <ContentControl x:Name="_nextDialogFrame" Canvas.Top="0"/>
+                </Canvas>
+            </Border>
+        </Canvas>
+    </Canvas>
+    
+</controls:MetroWindow>

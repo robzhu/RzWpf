@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="RzWpf.RadialProgressIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:RzWpf="clr-namespace:RzWpf">
+    <Canvas Background="{Binding Path=BarBackground, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:RadialProgressIndicator}}}">
+        <Polygon x:Name="_progress"
+                 Fill="{Binding Path=ValueForeground, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:RadialProgressIndicator}}}">
+            <Polygon.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform Y="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type RzWpf:RadialProgressIndicator}}}"/>
+                </TransformGroup>
+            </Polygon.RenderTransform>
+        </Polygon>
+    </Canvas>
+</UserControl>
