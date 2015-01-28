@@ -13,7 +13,7 @@ namespace RzWpfTest
         public void ExecuteCallsActionDelegate()
         {
             bool delegateCalled = false;
-            DelegatedCommand command = new DelegatedCommand( () =>
+            DelegateCommand command = new DelegateCommand( () =>
             {
                 delegateCalled = true;
             } );
@@ -28,7 +28,7 @@ namespace RzWpfTest
         {
             try
             {
-                var command = new DelegatedCommand( null, () => { return true; } );
+                var command = new DelegateCommand( null, () => { return true; } );
                 Assert.Fail( "should not reach here" );
             }
             catch( ArgumentNullException )
@@ -41,7 +41,7 @@ namespace RzWpfTest
         {
             object parameter = new object();
             object calledWith = null;
-            DelegatedCommand<object> command = new DelegatedCommand<object>( ( obj ) => { },
+            DelegateCommand<object> command = new DelegateCommand<object>( ( obj ) => { },
                 ( obj ) =>
                 {
                     calledWith = obj;
@@ -57,7 +57,7 @@ namespace RzWpfTest
         [TestMethod]
         public void NullCanExecuteReturnsTrueForCanExecute()
         {
-            DelegatedCommand command = new DelegatedCommand( () => { }, null );
+            DelegateCommand command = new DelegateCommand( () => { }, null );
 
             Assert.AreEqual( true, command.CanExecute( null ) );
         }
@@ -66,7 +66,7 @@ namespace RzWpfTest
         public void CanExecuteWithLexicalClosureWorks()
         {
             bool canExecute = false;
-            DelegatedCommand command = new DelegatedCommand( () => { },
+            DelegateCommand command = new DelegateCommand( () => { },
                 () =>
                 {
                     return canExecute;
@@ -82,7 +82,7 @@ namespace RzWpfTest
         [TestMethod]
         public void AddAndRemoveHandlerToCanExecuteWorks()
         {
-            var command = new DelegatedCommand( () => { } );
+            var command = new DelegateCommand( () => { } );
 
             EventHandler callback = ( sender, e ) => { };
 
@@ -93,7 +93,7 @@ namespace RzWpfTest
         [TestMethod]
         public void CanExecuteCallbackRegistersItselfWithCommandManager()
         {
-            var command = new DelegatedCommand( () => { }, () => { return true; } );
+            var command = new DelegateCommand( () => { }, () => { return true; } );
             bool canExecuteCallbackCalled = false;
             EventHandler callback = ( sender, e ) =>
             {
@@ -114,27 +114,6 @@ namespace RzWpfTest
             CommandManagerHelper.InvalidateRequerySuggestedAndProcess();
 
             Assert.IsFalse( canExecuteCallbackCalled );
-        }
-
-        [TestMethod]
-        public void WhenExecutedAsyncReturnsAwaitableTaskForExecution()
-        {
-            var command = DelegatedCommand.CreateAwaitableCommand();
-            var task = command.WhenExecutedAsync();
-
-            Task.Run( () =>
-            {
-                Thread.Sleep( 1000 );
-                Assert.Fail( "test took too long" );
-            } );
-
-            Task.Run( () =>
-            {
-                Thread.Sleep( 50 );
-                command.Execute( null );
-            } );
-
-            task.Wait();
         }
     }
 }

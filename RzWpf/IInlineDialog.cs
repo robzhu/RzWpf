@@ -55,8 +55,8 @@ namespace RzWpf
 
         public InlineDialog()
         {
-            CancelCommand = new DelegatedCommand( () => Close( false ), CanExecuteCancel );
-            AcceptCommand = new DelegatedCommand( () => Close( true ), CanExecuteAccept );
+            CancelCommand = new DelegateCommand( () => Close( false ), CanExecuteCancel );
+            AcceptCommand = new DelegateCommand( () => Close( true ), CanExecuteAccept );
         }
 
         protected virtual bool CanExecuteCancel()

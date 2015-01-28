@@ -146,8 +146,8 @@ namespace RzWpf
 
             DialogStack = new List<IInlineDialog>();
 
-            CloseCommand = new DelegatedCommand( OnExecuteClose );
-            MinimizeCommand = new DelegatedCommand( OnExecuteMinimize );
+            CloseCommand = new DelegateCommand( OnExecuteClose );
+            MinimizeCommand = new DelegateCommand( OnExecuteMinimize );
             BgColor = new SolidColorBrush( Colors.Black );
         }
 

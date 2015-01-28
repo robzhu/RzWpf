@@ -12,8 +12,8 @@ namespace RzWpfSample_Shell
 
         public ContentPageViewModel()
         {
-            BackCommand = new DelegatedCommand( OnExecuteBack );
-            DialogCommand = new DelegatedCommand( OnExecuteDialog );
+            BackCommand = new DelegateCommand( OnExecuteBack );
+            DialogCommand = new DelegateCommand( OnExecuteDialog );
             Text = Resources.Resources.Lorem;
         }
 
