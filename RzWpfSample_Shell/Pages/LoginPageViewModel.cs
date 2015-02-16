@@ -16,14 +16,7 @@ namespace RzWpfSample_Shell
 
         private void OnExecuteLogin()
         {
-            //Navigation.GoTo( new ContentPageViewModel() );
-            //LoginCommand.Execute( 
-            Thread.Sleep( 5000 );
+            Navigation.GoTo( new ContentPageViewModel() );
         }
-
-        //private bool CanExecuteLogin()
-        //{
-
-        //}
     }
 }
