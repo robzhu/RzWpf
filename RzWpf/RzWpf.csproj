@@ -98,6 +98,7 @@
     <Compile Include="Animation\PennerIntAnimation.cs" />
     <Compile Include="AsyncDelegateCommand.cs" />
     <Compile Include="AttachedProperties\MouseBehavior.cs" />
+    <Compile Include="AttachedProperties\TextBoxBehavior.cs" />
     <Compile Include="Converters\BoolToFlowDirectionConverter.cs" />
     <Compile Include="Converters\FloatToPercentStringConverter.cs" />
     <Compile Include="Glass\WindowExtensions.cs" />
